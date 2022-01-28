@@ -64,7 +64,7 @@ def area_of_circle(string):
 
 # Intermediate Tasks
 
-def caesar_cipher(string):
+def constant_shift_caesar_cipher(string):
     shift = 7
 
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -92,7 +92,7 @@ def secret_linear_function(string):
 
     return y
 
-def distance_calculator(string):
+def coordinate_distance(string):
     trimmed_string = string.replace("(", "").replace(")", "").split(";")
 
     string_coordinates = [coordinate.split(",") for coordinate in trimmed_string]
@@ -107,6 +107,23 @@ def distance_calculator(string):
     distance = squared_distance ** 0.5
 
     return distance
+
+def seconds_to_datetime(string):
+    seconds = int(string)
+
+    minutes = seconds/60
+
+    hours = minutes/60
+
+    days = hours/24
+
+    weeks = days/7
+
+    months = weeks/4
+
+    years = months/12
+
+    return "{} years, {} months, {} weeks, {} days, {} hours, {} minutes, {} seconds".format(round(years), round(months), round(weeks), round(days), round(hours), round(minutes), round(seconds))
 
 # Hard Tasks
 

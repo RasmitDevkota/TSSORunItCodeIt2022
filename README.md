@@ -15,7 +15,7 @@ Run It Code It task files for Tesla STEM High School Divison B Invitational 2022
     1. Constant shift Caesar cipher encryption
     2. Secret linear function
     3. Distance between two coordinates
-    4. Seconds-to-date/time converter
+    4. Seconds to years, months, days, weeks, hours, minutes, and seconds calculator
 - Hard
     1. Text-to-ASCII converter
     2. Binary-to-octal number converter
