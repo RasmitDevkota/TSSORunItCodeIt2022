@@ -1,3 +1,8 @@
+# Easy Tasks
+
+from tkinter import Y
+
+
 def palindrome_checker(word):
     # Checks to see if the string is the same as itself reverse
     # Returns True if param:word is a palindrome
@@ -56,3 +61,73 @@ def area_of_circle(string):
 
     # Returns area of circle given radius
     return 3.14 * radius ** 2
+
+# Intermediate Tasks
+
+def caesar_cipher(string):
+    shift = 7
+
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    encrypted_string = ""
+
+    for plaintext in string:
+        plaintext_index = alphabet.index(str.capitalize(plaintext))
+
+        ciphertext_index = plaintext_index + shift
+
+        ciphertext = alphabet[ciphertext_index]
+
+        if ciphertext.islower():
+            ciphertext = ciphertext.lower()
+
+        encrypted_string += ciphertext
+
+    return encrypted_string
+
+def secret_linear_function(string):
+    x = int(string)
+
+    y = 11 * x + 22
+
+    return y
+
+def distance_calculator(string):
+    trimmed_string = string.replace("(", "").replace(")", "").split(";")
+
+    string_coordinates = [coordinate.split(",") for coordinate in trimmed_string]
+
+    number_coordinates = [int(ordinate) for coordinate in trimmed_string for ordinate in coordinate]
+
+    squared_distance = 0
+
+    for i in range(len(number_coordinates[0])):
+        squared_distance += (number_coordinates[1][i] - number_coordinates[0][i]) ** 2
+
+    distance = squared_distance ** 0.5
+
+    return distance
+
+# Hard Tasks
+
+ascii_dict = {
+    "A": [],
+    "B": [],
+    "C": [],
+    "D": [],
+    "E": [],
+}
+
+def text_to_ascii(string):
+    if not string.isalpha():
+        return "String contains non-alphabetical characters"
+
+    ascii_string = ""
+
+    for row in range(8):
+        for letter in string:
+            ascii_string += ascii_dict[letter.upper()][row]
+
+        ascii_string += "\n"
+
+    return ascii_string
