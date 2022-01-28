@@ -62,7 +62,29 @@ def area_of_circle(string):
     # Returns area of circle given radius
     return 3.14 * radius ** 2
 
+def even_odd_checker(string):
+    return int(string) % 2 == 0
+
+def factorial(string):
+    factorial = 1
+    for i in range(1, int(string)+1):
+        factorial = factorial * i
+    return factorial
+
 # Intermediate Tasks
+def fibonnaci_series(count):
+    zero = 0
+    one = 1
+    if int(count) == 1:
+        return "0"
+    else:
+        series = "0 1"
+        for i in range(2,int(count)):
+            c = zero + one
+            zero = one
+            one = c
+            series += " " + str(c)
+        return series
 
 def constant_shift_caesar_cipher(string):
     shift = 7
