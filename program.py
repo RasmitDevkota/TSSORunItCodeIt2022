@@ -260,8 +260,12 @@ def main():
     -------------------------------------------------
     """)
 
-    task = input("Choose a task to run by entering the corresponding number!\n")
-    task_num = int(task.replace(".", ""))
+    task = input("Choose a task to run by entering the corresponding number!\n").replace(".", "")
+
+    if not task.isdigit():
+        return print("Please enter a valid task number between 1 and 15!")
+
+    task_num = int(task)
 
     output_string = ""
 
@@ -334,8 +338,6 @@ def main():
         output_string = text_to_ascii(input_string)
     else:
         output_string = "Please select a valid task!"
-
-        return main()
 
     print(output_string)
 
