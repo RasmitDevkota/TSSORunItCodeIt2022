@@ -3,16 +3,18 @@
 Run It Code It task files for Tesla STEM High School Divison B Invitational 2022.
 
 ## Tasks
-
-    1. Palindrome checker
-    2. Vowel/consonant checker
-    3. Arithmetic calculator
-    4. Area of a circle calculator
-    5. Kinematics calculator (equations given)
-    6. Compound interest calculator
-    7. Constant shift Caesar cipher encryption
-    8. Secret linear function
-    9. Distance between two coordinates
-    10. Seconds to years, months, days, weeks, hours, minutes, and seconds calculator
-    11. Text-to-ASCII converter
-    12. Binary-to-octal number converter
+1. Palindrome checker
+2. Vowel/consonant counter
+3. Arithmetic calculator
+4. Area of a circle calculator
+5. Even/odd checker
+6. Factorial calculator
+7. Fibonacci series generator
+8. Compound interest calculator
+9. Seconds to whole number of years
+10. NAND gate calculator
+11. Constant-shift Caesar cipher encryption
+12. Distance between two coordinates
+13. Secret linear function
+14. Binary-to-decimal convertor
+15. Text-to-ASCII converter

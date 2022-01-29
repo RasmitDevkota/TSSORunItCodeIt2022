@@ -1,7 +1,10 @@
+def main():
+    print("Welcome to the TeslaOS v.2")
+    print("Choose a task to begin with!")
+
+main()
+
 # Easy Tasks
-
-from tkinter import Y
-
 
 def palindrome_checker(word):
     # Checks to see if the string is the same as itself reverse
@@ -27,63 +30,100 @@ def vowel_consonant_counter(word):
     # Returns # of Vowels; (space); # of Consonants for param:word
     return str(vowels) + " " + str(consonants)
 
-def add_numbers(string):
+def arithmetic(string):
     # Split input string into a list of each number as integers
-    numbers = [int(number) for number in string.split()]
+    numbers = [int(number.replace(",", "")) for number in string.split()]
 
-    # Returns First Number + Second Number
-    return numbers[0] + numbers[1]
-
-def subtract_numbers(string):
-    # Split input string into a list of each number as integers
-    numbers = [int(number) for number in string.split()]
-
-    # Returns First Number - Second Number
-    return numbers[0] - numbers[1]
-
-def multiply_numbers(string):
-    # Split input string into a list of each number as integers
-    numbers = [int(number) for number in string.split()]
-
-    # Returns First Number multiplied by Second Number
-    return numbers[0] * numbers[1]
-
-def divide_numbers(string):
-    # Split input string into a list of each number as integers
-    numbers = [int(number) for number in string.split()]
+    n1, n2 = numbers
 
     # Returns First Number divided by Second Number
-    return numbers[0] / numbers[1]
+    return "{n1}+{n2}={sum}, {n1}-{n2}={difference}, {n1}*{n2}={product}, and {n1}/{n2}={quotient}".format(
+        n1=n1, n2=n2, sum=n1+n2, difference=n1-n2, product=n1*n2, quotient=n1/n2
+    )
 
 def area_of_circle(string):
     # Convert input string to radius integer
-    radius = int(string)
+    radius = int(string.replace(",", ""))
 
     # Returns area of circle given radius
     return 3.14 * radius ** 2
 
+def nand(string):
+    bitstrings = string.split(" ")
+
+    if bitstrings[0].isdigit() and bitstrings[1].isdigit() and len(bitstrings[0]) == len(bitstrings[1]):
+        nand_result = ""
+
+        for i in range(len(bitstrings[0])):
+            bit1 = int(bitstrings[0][i])
+            bit2 = int(bitstrings[1][i])
+
+            if not isinstance(bit1, bool):
+                return
+
+            nand_result += str(not (bit1 & bit2))
+
+        return nand_result.replace("True", "1").replace("False", "0")
+    else:
+        return
+
+def compound_interest(string):
+    numbers = [int(number.replace(",", "")) for number in string.split(" ")]
+
+    if not all(number > 0 for number in numbers):
+        return
+
+    principal, rate, time = numbers[0], numbers[1], numbers[2]
+
+    interest = principal * rate ** time
+
+    return interest
+
 def even_odd_checker(string):
-    return int(string) % 2 == 0
+    number = int(string.replace(",", ""))
+
+    return number % 2 == 0
 
 def factorial(string):
+    number = int(string.replace(",", ""))
+
+    if number < 0:
+        return
+
+    if number == 0:
+        return 1
+
     factorial = 1
-    for i in range(1, int(string)+1):
+
+    for i in range(1, number + 1):
         factorial = factorial * i
+
     return factorial
 
 # Intermediate Tasks
-def fibonnaci_series(count):
+
+def fibonnaci_series(string):
+    count = int(string)
+
     zero = 0
     one = 1
-    if int(count) == 1:
+
+    if count < 1:
+        return
+    if count == 1:
         return "0"
     else:
         series = "0 1"
-        for i in range(2,int(count)):
+
+        for i in range(2,count):
             c = zero + one
+
             zero = one
+
             one = c
+
             series += " " + str(c)
+
         return series
 
 def constant_shift_caesar_cipher(string):
@@ -119,7 +159,7 @@ def coordinate_distance(string):
 
     string_coordinates = [coordinate.split(",") for coordinate in trimmed_string]
 
-    number_coordinates = [int(ordinate) for coordinate in trimmed_string for ordinate in coordinate]
+    number_coordinates = [int(ordinate) for coordinate in string_coordinates for ordinate in coordinate]
 
     squared_distance = 0
 
@@ -130,43 +170,24 @@ def coordinate_distance(string):
 
     return distance
 
-def seconds_to_datetime(string):
-    seconds = int(string)
+def seconds_to_whole_years(string):
+    seconds = int(string.replace(",", ""))
 
-    minutes = seconds/60
+    years = seconds//31556952
 
-    hours = minutes/60
-
-    days = hours/24
-
-    weeks = days/7
-
-    months = weeks/4
-
-    years = months/12
-
-    return "{} years, {} months, {} weeks, {} days, {} hours, {} minutes, {} seconds".format(round(years), round(months), round(weeks), round(days), round(hours), round(minutes), round(seconds))
+    return years
 
 # Hard Tasks
 
-ascii_dict = {
-    "A": [],
-    "B": [],
-    "C": [],
-    "D": [],
-    "E": [],
-}
-
 def text_to_ascii(string):
-    if not string.isalpha():
-        return "String contains non-alphabetical characters"
-
-    ascii_string = ""
-
-    for row in range(8):
-        for letter in string:
-            ascii_string += ascii_dict[letter.upper()][row]
-
-        ascii_string += "\n"
+    ascii_string = " ".join([str(ord(char)) for char in string])
 
     return ascii_string
+
+def binary_to_decimal(string):
+    if not string.isdigit():
+        return
+
+    string_reversed = string[::-1]
+
+    decimal_num = sum([2 ** n if string_reversed[n] == "1" else 0 for n in range(len(string_reversed))])
