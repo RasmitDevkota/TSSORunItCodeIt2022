@@ -1,3 +1,18 @@
+def isint(number):
+    if number.isdecimal():
+        return True
+    elif number.startswith("-") and number[1:].isdecimal():
+        return True
+    else:
+        return False
+
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
 def palindrome_checker(string):
     if len(string) <= 2048:
         return string == string[::-1]
@@ -20,32 +35,35 @@ def vowel_consonant_counter(string):
     return "Input word has {} vowels and {} consonants".format(vowels, consonants)
 
 def arithmetic(string):
-    if not string.split()[0].isdigit() or not string.split()[1].isdigit():
+    if not isint(string.split()[0]) or not isint(string.split()[1]):
         return "Please only input integers under 2000000000 without commas!"
 
     numbers = [int(number) for number in string.split()]
 
     n1, n2 = numbers
+    
+    if n2 == 0:
+        return "Please make sure the second under isn't 0 (cannot divide by 0)!"
 
     return "{n1}+{n2}={sum}, {n1}-{n2}={difference}, {n1}*{n2}={product}, and {n1}/{n2}={quotient}".format(
         n1=n1, n2=n2, sum=n1+n2, difference=n1-n2, product=n1*n2, quotient=n1/n2
     )
 
 def area_of_circle(string):
-    if not string.isdigit():
-        return "Please only input integers under 2000000000 without commas!"
+    if not string.isdecimal():
+        return "Please only input positive integers under 2000000000 without commas!"
 
     radius = int(string)
 
     if not radius < 2000000000:
-        return "Please only input integers under 2000000000 without commas!"
+        return "Please only input positive integers under 2000000000 without commas!"
 
     area = round(3.14 * radius ** 2, 2)
 
     return "Radius of a circle with radius {}: {}".format(radius, area)
 
 def even_odd_checker(string):
-    if not string.isdigit():
+    if not isint(string):
         return "Please only input integers without commas!"
 
     number = int(string)
@@ -58,7 +76,7 @@ def even_odd_checker(string):
     return parity
 
 def factorial(string):
-    if not string.isdigit():
+    if not isint(string):
         return "Please only input integers betweeen 0 and 100, inclusive!"
 
     number = int(string)
@@ -77,7 +95,7 @@ def factorial(string):
     return factorial
 
 def fibonnaci_series(string):
-    if not string.isdigit():
+    if not string.isdecimal():
         return "Please only input integers between 1 and 100, inclusive!"
 
     count = int(string)
@@ -104,13 +122,13 @@ def fibonnaci_series(string):
         return series
 
 def seconds_to_whole_years(string):
-    if not string.isdigit():
-        return "Please only input integers without commas!"
+    if not string.isdecimal():
+        return "Please only input positive integers without commas!"
 
     seconds = int(string)
 
     if seconds >= 2000000000:
-        return "Please enter a number of seconds less than 2000000000 without commas!"
+        return "Please enter a positive number of seconds less than 2000000000 without commas!"
 
     years = seconds//31556952
 
@@ -122,7 +140,7 @@ def nand(string):
     if len(bitstrings[0]) >= 128 or len(bitstrings[1]) >= 128:
         return "Please enter two space-separated bitstrings of length < 128!"
 
-    if bitstrings[0].isdigit() and bitstrings[1].isdigit() and len(bitstrings[0]) == len(bitstrings[1]):
+    if bitstrings[0].isdecimal() and bitstrings[1].isdecimal() and len(bitstrings[0]) == len(bitstrings[1]):
         nand_result = ""
 
         for i in range(len(bitstrings[0])):
@@ -142,12 +160,12 @@ def nand(string):
         return "Please enter two space-separated bitstrings!"
 
 def compound_interest(string):
-    numbers = [float(number.replace(",", "")) for number in string.split(" ")]
+    numbers = [isfloat(number.replace(",", "")) for number in string.split(" ")]
 
     principal, rate, time = numbers[0], numbers[1], numbers[2]
 
     if not all(number > 0 for number in numbers) or len(numbers) != 3 or principal >= 1000000 or rate >= 2 or time >= 100:
-        return "Please enter a principal under 1000000, rate under 2, and time in a whole number of years less than 100 without any dollar signs or commas!"
+        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
 
     interest = int(round(principal * rate ** time, 2))
 
@@ -191,15 +209,17 @@ def coordinate_distance(string):
         if len(coordinate) > 10:
             return "Please enter coordinates with 10 or less dimensions!"
 
-        number_coordinate = [int(ordinate) ]
+        number_coordinate = []
 
         for ordinate in coordinate:
-            if ordinate >= -1024 and ordinate <= 1024:
-                number_coordinates.append(number_coordinate)
+            if not isint(ordinate):
+                return "Please enter coordinates with integer values between -1024 and 1024, inclusive!"
+            elif int(ordinate) < -1024 and int(ordinate) > 1024:
+                return "Please enter coordinates with integer values between -1024 and 1024, inclusive!"
             else:
-                return "Please enter coordinates with values between -1024 and 1024, inclusive!"
-
-    print(number_coordinates)
+                number_coordinate.append(int(ordinate))
+        
+        number_coordinates.append(number_coordinate)
 
     squared_distance = 0
 
@@ -211,22 +231,27 @@ def coordinate_distance(string):
     return distance
 
 def secret_linear_function(string):
+    if not isint(string):
+        return "Please enter a single integer < 1000000!"
+
     x = int(string)
 
-    if x > 999999:
-        return "Please enter a single number < 1000000"
+    if x >= 1000000:
+        return "Please enter a single integer < 1000000!"
 
     y = 11 * x + 22
 
     return y
 
 def binary_to_decimal(string):
-    if not string.isdigit():
+    if not string.isdecimal() or len(string) >= 32:
         return "Please enter a single bitstring of length < 32!"
+    
+    for bit in string:
+        if not bit in ["0", "1"]:
+            return "Please enter a single bitstring of length < 32!"
 
-    string_reversed = string[::-1]
-
-    decimal_num = sum([2 ** n if string_reversed[n] == "1" else 0 for n in range(len(string_reversed))])
+    decimal_num = int(string, 2)
 
     return decimal_num
 
@@ -262,7 +287,7 @@ def main():
 
     task = input("Choose a task to run by entering the corresponding number!\n").replace(".", "")
 
-    if not task.isdigit():
+    if not task.isdecimal():
         return print("Please enter a valid task number between 1 and 15!")
 
     task_num = int(task)
@@ -280,12 +305,12 @@ def main():
     elif task_num == 3:
         print("This task will calculate the sum, difference, product, and quotient of two numbers.")
         input_string_1 = input("Please enter an integer under 2000000000!\n")
-        input_string_2 = input("Please enter a second integer under 2000000000!\n")
+        input_string_2 = input("Please enter a second non-zero integer under 2000000000!\n")
         input_string = input_string_1 + " " + input_string_2
         output_string = arithmetic(input_string)
     elif task_num == 4:
         print("This task will calculate the area of a circle with two-decimal place precision given an integer radius.")
-        input_string = input("Please enter a single integer under 2000000000 without commas!\n")
+        input_string = input("Please enter a single positive integer under 2000000000 without commas!\n")
         output_string = area_of_circle(input_string)
     elif task_num == 5:
         print("This task will determine whether an integer is even or odd.")
@@ -301,14 +326,14 @@ def main():
         output_string = fibonnaci_series(input_string)
     elif task_num == 8:
         print("This task will calculate the yearly compound interest earned from the principal, rate, and time.")
-        input_string_1 = input("Please enter the principal amount as an integer less than 1000000 without dollar signs or commas!\n")
-        input_string_2 = input("Please enter the interest rate as a decimal under 2!\n")
-        input_string_3 = input("Please enter the time in years as an integer under 100!\n")
+        input_string_1 = input("Please enter the principal amount as a positive decimal < 1000000 without dollar signs or commas!\n")
+        input_string_2 = input("Please enter the interest rate as a positive decimal < 2!\n")
+        input_string_3 = input("Please enter the time in years as a positive decimal < 100!\n")
         input_string = input_string_1 + " " + input_string_2 + " " + input_string_3
         output_string = compound_interest(input_string)
     elif task_num == 9:
         print("This task will convert a number of seconds to a whole number of years, only rounding down as necessary.")
-        input_string = input("Please enter a single integer < 2000000000 without commas!\n")
+        input_string = input("Please enter a single positive integer < 2000000000 without commas!\n")
         output_string = seconds_to_whole_years(input_string)
     elif task_num == 10:
         print("This task will compute the bitwise NAND operation between two bitstrings.")
@@ -319,7 +344,7 @@ def main():
         input_string = input("Please enter a plaintext string to encrypt!\n")
         output_string = constant_shift_caesar_cipher(input_string)
     elif task_num == 12:
-        print("This task will calculate the Euclidean distance with four-decimal place precision between two coordinates in less than 10 dimensions with values between -1024 and 1024, inclusive.")
+        print("This task will calculate the Euclidean distance with four-decimal place precision between two coordinates in less than 10 dimensions with integer values between -1024 and 1024, inclusive.")
         input_string_1 = input("Please enter the first coordinate in the format (x, y, z, ...)!\n")
         input_string_2 = input("Please enter the second coordinate in the format (x, y, z, ...)!\n")
         input_string = input_string_1 + ";" + input_string_2
@@ -330,7 +355,7 @@ def main():
         output_string = secret_linear_function(input_string)
     elif task_num == 14:
         print("This task will convert a bitstring (binary base) to a number in decimal base.")
-        input_string = input("Please enter a single bitstring!\n")
+        input_string = input("Please enter a single bitstring of length < 32!\n")
         output_string = binary_to_decimal(input_string)
     elif task_num == 15:
         print("This task will convert a piece of text into its ASCII representation.")
