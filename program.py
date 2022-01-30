@@ -36,16 +36,16 @@ def vowel_consonant_counter(string):
 
 def arithmetic(string):
     if len(string.split()) < 2:
-        return "Please only input integers under 2000000000 without commas!"
+        return "Please only input integers < 2000000000 without commas!"
     elif not isint(string.split()[0]) or not isint(string.split()[1]):
-        return "Please only input integers under 2000000000 without commas!"
+        return "Please only input integers < 2000000000 without commas!"
 
     numbers = [int(number) for number in string.split()]
 
     n1, n2 = numbers
     
     if n2 == 0:
-        return "Please make sure the second under isn't 0 (cannot divide by 0)!"
+        return "Please make sure the second number isn't 0 (cannot divide by 0)!"
 
     return "{n1}+{n2}={sum}, {n1}-{n2}={difference}, {n1}*{n2}={product}, and {n1}/{n2}={quotient}".format(
         n1=n1, n2=n2, sum=n1+n2, difference=n1-n2, product=n1*n2, quotient=n1/n2
@@ -53,12 +53,12 @@ def arithmetic(string):
 
 def area_of_circle(string):
     if not string.isdecimal():
-        return "Please only input positive integers under 2000000000 without commas!"
+        return "Please only input positive integers < 2000000000 without commas!"
 
     radius = int(string)
 
     if not radius < 2000000000:
-        return "Please only input positive integers under 2000000000 without commas!"
+        return "Please only input positive integers < 2000000000 without commas!"
 
     area = round(3.14 * radius ** 2, 2)
 
@@ -66,12 +66,12 @@ def area_of_circle(string):
 
 def even_odd_checker(string):
     if not isint(string):
-        return "Please only input integers without commas!"
+        return "Please only input integers < 2000000000 without commas!"
 
     number = int(string)
 
     if not number < 2000000000:
-        return "Please only input integers under 2000000000 without commas!"
+        return "Please only input integers < 2000000000 without commas!"
 
     parity = "This number is even!" if number % 2 == 0 else "This number is odd!"
 
@@ -165,19 +165,19 @@ def nand(string):
 
 def compound_interest(string):
     if len(string.split()) < 3:
-        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
+        return "Please enter a principal < 1000000, rate < 2, and time in years < 100 without any dollar signs or commas!"
     
     numbers = [number for number in string.split(" ")]
     
     if all(isfloat(number) for number in numbers):
         numbers = [float(number) for number in numbers]
     else:
-        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
+        return "Please enter a principal < 1000000, rate < 2, and time in years < 100 without any dollar signs or commas!"
 
     principal, rate, time = numbers[0], numbers[1], numbers[2]
 
     if not all(number > 0 for number in numbers) or len(numbers) != 3 or principal >= 1000000 or rate >= 2 or time >= 100:
-        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
+        return "Please enter a principal < 1000000, rate < 2, and time in years < 100 without any dollar signs or commas!"
 
     interest = int(round(principal * rate ** time, 2))
 
@@ -324,17 +324,17 @@ def main():
         output_string = vowel_consonant_counter(input_string)
     elif task_num == 3:
         print("This task will calculate the sum, difference, product, and quotient of two numbers.")
-        input_string_1 = input("Please enter an integer under 2000000000!\n")
-        input_string_2 = input("Please enter a second non-zero integer under 2000000000!\n")
+        input_string_1 = input("Please enter an integer < 2000000000!\n")
+        input_string_2 = input("Please enter a second non-zero integer < 2000000000!\n")
         input_string = input_string_1 + " " + input_string_2
         output_string = arithmetic(input_string)
     elif task_num == 4:
         print("This task will calculate the area of a circle with two-decimal place precision given an integer radius.")
-        input_string = input("Please enter a single positive integer under 2000000000 without commas!\n")
+        input_string = input("Please enter a single positive integer < 2000000000 without commas!\n")
         output_string = area_of_circle(input_string)
     elif task_num == 5:
         print("This task will determine whether an integer is even or odd.")
-        input_string = input("Please enter a single integer under 2000000000 without commas!\n")
+        input_string = input("Please enter a single integer < 2000000000 without commas!\n")
         output_string = even_odd_checker(input_string)
     elif task_num == 6:
         print("This task will calculate the factorial of a number.")
