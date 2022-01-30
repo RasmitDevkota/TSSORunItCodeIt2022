@@ -211,6 +211,9 @@ def constant_shift_caesar_cipher(string):
     return encrypted_string
 
 def coordinate_distance(string):
+    if not string.startswith("(") or not string.endswith(")"):
+            return "Please enter coordinates in the format (x, y, z, ...)!"
+    
     trimmed_string = string.replace("(", "").replace(")", "").replace(" ", "").split(";")
 
     string_coordinates = [coordinate.split(",") for coordinate in trimmed_string]
@@ -279,7 +282,7 @@ def text_to_ascii(string):
     if len(string) >= 128:
         return "Please enter a piece of text of length < 128!"
 
-    ascii_string = " ".join([str(ord(char)) for char in string])
+    ascii_string = " ".join([str(ascii(char)) for char in string])
 
     return ascii_string
 
