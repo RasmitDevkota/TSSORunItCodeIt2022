@@ -35,7 +35,9 @@ def vowel_consonant_counter(string):
     return "Input word has {} vowels and {} consonants".format(vowels, consonants)
 
 def arithmetic(string):
-    if not isint(string.split()[0]) or not isint(string.split()[1]):
+    if len(string.split()) < 2:
+        return "Please only input integers under 2000000000 without commas!"
+    elif not isint(string.split()[0]) or not isint(string.split()[1]):
         return "Please only input integers under 2000000000 without commas!"
 
     numbers = [int(number) for number in string.split()]
@@ -135,9 +137,11 @@ def seconds_to_whole_years(string):
     return years
 
 def nand(string):
-    bitstrings = string.split(" ")
-
-    if len(bitstrings[0]) >= 128 or len(bitstrings[1]) >= 128:
+    bitstrings = string.split()
+    
+    if len(string.split()) < 2:
+        return "Please enter two space-separated bitstrings of length < 128!"
+    elif len(bitstrings[0]) >= 128 or len(bitstrings[1]) >= 128:
         return "Please enter two space-separated bitstrings of length < 128!"
 
     if bitstrings[0].isdecimal() and bitstrings[1].isdecimal() and len(bitstrings[0]) == len(bitstrings[1]):
@@ -160,7 +164,15 @@ def nand(string):
         return "Please enter two space-separated bitstrings!"
 
 def compound_interest(string):
-    numbers = [isfloat(number.replace(",", "")) for number in string.split(" ")]
+    if len(string.split()) < 3:
+        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
+    
+    numbers = [number for number in string.split(" ")]
+    
+    if all(isfloat(number) for number in numbers):
+        numbers = [float(number) for number in numbers]
+    else:
+        return "Please enter a principal under 1000000, rate under 2, and time in years less than 100 without any dollar signs or commas!"
 
     principal, rate, time = numbers[0], numbers[1], numbers[2]
 
@@ -204,12 +216,20 @@ def coordinate_distance(string):
     string_coordinates = [coordinate.split(",") for coordinate in trimmed_string]
 
     number_coordinates = []
+    
+    expected_dimension = 0
 
     for coordinate in string_coordinates:
         if len(coordinate) > 10:
             return "Please enter coordinates with 10 or less dimensions!"
 
         number_coordinate = []
+        
+        if expected_dimension == 0:
+            expected_dimension = len(coordinate)
+        else:
+            if len(coordinate) != expected_dimension:
+                return "Please enter coordinates with the same number of 10 or less dimensions!"
 
         for ordinate in coordinate:
             if not isint(ordinate):
