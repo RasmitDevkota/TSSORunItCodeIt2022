@@ -278,13 +278,13 @@ def binary_to_decimal(string):
 
     return decimal_num
 
-def text_to_ascii(string):
+def text_to_unicode(string):
     if len(string) >= 128:
         return "Please enter a piece of text of length < 128!"
 
-    ascii_string = " ".join([str(ascii(char)) for char in string])
+    unicode_string = " ".join(str(ord(char)) for char in string).replace("\'", "")
 
-    return ascii_string
+    return unicode_string
 
 def main():
     print("""
@@ -304,7 +304,7 @@ def main():
     | 12. Coordinate distance calculator            |
     | 13. Secret linear function                    |
     | 14. Binary-to-decimal convertor               |
-    | 15. Text-to-ASCII converter                   |
+    | 15. Text-to-Unicode converter                 |
     -------------------------------------------------
     """)
 
@@ -381,9 +381,9 @@ def main():
         input_string = input("Please enter a single bitstring of length < 32!\n")
         output_string = binary_to_decimal(input_string)
     elif task_num == 15:
-        print("This task will convert a piece of text into its ASCII representation.")
+        print("This task will convert a piece of text into its decimal Unicode representation.")
         input_string = input("Please enter a piece of text to convert!\n")
-        output_string = text_to_ascii(input_string)
+        output_string = text_to_unicode(input_string)
     else:
         output_string = "Please select a valid task!"
 
