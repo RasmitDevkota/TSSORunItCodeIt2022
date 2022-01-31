@@ -2,7 +2,7 @@
 
 Run It Code It task files for Tesla STEM High School Divison B Invitational 2022.
 
-## Tasks
+### Tasks
 1. Palindrome checker
 2. Vowel/consonant counter
 3. Arithmetic calculator
@@ -18,6 +18,11 @@ Run It Code It task files for Tesla STEM High School Divison B Invitational 2022
 13. Secret linear function
 14. Binary-to-decimal converter
 15. Text-to-Unicode converter
+
+### Task Files (WIP)
+* 🚧 C++ - [tasks.cpp](./tasks.cpp)
+* 🚧 Java - [tasks.java](./tasks.java)
+* ✅ Python - [tasks.py](./tasks.py)
 
 ### Scoring Rubric
 
