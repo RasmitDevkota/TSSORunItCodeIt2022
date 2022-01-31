@@ -40,6 +40,6 @@ As feedback to competitors, remember that partial credit is always an opportunit
 
 ![Score Distribution](https://docs.google.com/spreadsheets/d/e/2PACX-1vS2oaaQfJkeF5FNE_HoyeN7izCZrGGcl8SVvxS-EApjXkhgUX0EjirqLMBWmwb3YfWWgX3X0wxzSeKZ/pubchart?oid=254193879&format=image)
 
-#### Event Supervisors
+### Event Supervisors
 * Rasmit (GitHub - [DrAlienTech](https://github.com/DrAlienTech), Scioly.org - [RasmitDevkota](https://scioly.org/wiki/index.php/User:RasmitDevkota), Email - [rdatch101@gmail.com](mailto:rdatch101@gmail.com))
 * Royce (GitHub - [RoyceAroc](https://github.com/RoyceAroc), Scioly.org - [Royce](https://scioly.org/wiki/index.php/User:Royce), Email - [royceaden@gmail.com](mailto:royceaden@gmail.com))
