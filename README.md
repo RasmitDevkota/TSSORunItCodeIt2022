@@ -24,7 +24,7 @@ Run It Code It task files for Tesla STEM High School Divison B Invitational 2022
 * 🚧 Java - [tasks.java](./tasks.java)
 * ✅ Python - [tasks.py](./tasks.py)
 
-_**Disclaimer:** Although the C++ and Java files are currently empty, they should be completed very soon (this README will be updated once they are). In addition, documentation has not been added to the Python file, but it will be included in all three files once they are complete. The current ETA is sometime before 2/1/2022._
+_**Disclaimer:** Although the C++ and Java files are currently empty, they should be completed very soon (this README will be updated once they are). In addition, documentation has not been added to the Python file, but it will be included in all three files once they are complete. The current ETA is sometime around 2/1/2022._
 
 ### Scoring Rubric
 
