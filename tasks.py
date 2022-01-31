@@ -303,7 +303,7 @@ def main():
     | 11. Constant-shift Caesar cipher encryption   |
     | 12. Coordinate distance calculator            |
     | 13. Secret linear function                    |
-    | 14. Binary-to-decimal convertor               |
+    | 14. Binary-to-decimal converter               |
     | 15. Text-to-Unicode converter                 |
     -------------------------------------------------
     """)
