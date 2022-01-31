@@ -36,6 +36,12 @@ Based on the feedback given, these tasks were either very challenging or very ea
 
 As feedback to competitors, remember that partial credit is always an opportunity! Many teams barely got past the menu, some only coded a single task and gave up afterwards. Even if you aren't sure about something, at least include it in the menu and parse the input and pass it to a bare function. Along with proper style, documentation, and modularity, this would earn plenty of points, which, especially since almost all teams missed out on points for documentation, helped a lot given how close scores were for those who weren't able to write as much cose.
 
+### Feedback Survey
+
+Feedback Survey: [scioly.web.app/feedback/tsso2022-rici](https://scioly.web.app/feedback/tsso2022-rici)
+
+If you competed at this tournament, please consider completing our feedback survey if you have not already! If you did not compete, you are more than welcome to try this test out and fill out the survey afterwards! Constructive feedback helps more than you'd think, so we would really appreciate it if you could take a minute to compete the survey! Who knows, maybe you'll see us again at a future competition with an even better test!
+
 ### Score Distribution
 
 ![Score Distribution](https://docs.google.com/spreadsheets/d/e/2PACX-1vS2oaaQfJkeF5FNE_HoyeN7izCZrGGcl8SVvxS-EApjXkhgUX0EjirqLMBWmwb3YfWWgX3X0wxzSeKZ/pubchart?oid=254193879&format=image)
