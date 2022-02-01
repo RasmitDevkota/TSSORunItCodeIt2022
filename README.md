@@ -1,6 +1,6 @@
 # Tesla STEM SO Invitational 2022 - Run It Code It B
 
-Run It Code It task files for Tesla STEM High School Divison B Invitational 2022.
+Run It Code It instruction and task files for Tesla STEM High School Divison B Invitational 2022.
 
 ### Tasks
 1. Palindrome checker
