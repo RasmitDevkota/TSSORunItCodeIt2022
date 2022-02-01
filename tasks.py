@@ -167,7 +167,7 @@ def compound_interest(string):
     if len(string.split()) < 3:
         return "Please enter a principal < 1000000, rate < 2, and time in years < 100 without any dollar signs or commas!"
     
-    numbers = [number for number in string.split(" ")]
+    numbers = [number for number in string.split()]
     
     if all(isfloat(number) for number in numbers):
         numbers = [float(number) for number in numbers]
@@ -195,13 +195,13 @@ def constant_shift_caesar_cipher(string):
 
     for plaintext in string:
         if plaintext in alphabet:
-            plaintext_index = alphabet.index(str.capitalize(plaintext))
+            plaintext_index = alphabet.index(plaintext.capitalize())
 
             ciphertext_index = plaintext_index + shift
 
             ciphertext = alphabet[ciphertext_index]
 
-            if ciphertext.islower():
+            if plaintext.islower():
                 ciphertext = ciphertext.lower()
 
             encrypted_string += ciphertext
