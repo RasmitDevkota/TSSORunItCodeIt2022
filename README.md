@@ -32,6 +32,8 @@ View the [Instructions](https://github.com/DrAlienTech/TSSORunItCodeIt2022/blob/
 
 ### Scoring Rubric
 
+_**Disclaimer:** This competition used an old version of the Scoring Rubric which did not scale points down for the Tasks portion. [Contact an event supervisor](./README.md#Event-Supervisors) (contact information linked at the bottom) for more information._
+
 [RasmitDevkota's Run It Code It Scoring Rubric](https://gist.github.com/DrAlienTech/f97fa4f7a6649ba6dd92d5579251837e)
 
 Points were allocated very generously based on completion of each step of the process, and partial points were awarded to teams who at least attempted a step, even if they didn't code it correctly. Note that the term "step" in this case refers to any non-trivial steps anywhere in the program, not necessarily a line of code or something within one of the tasks. No points were awarded for portions which were not attempted at all.
