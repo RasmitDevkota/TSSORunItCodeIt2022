@@ -35,9 +35,7 @@ def vowel_consonant_counter(string):
     return "Input word has {} vowels and {} consonants".format(vowels, consonants)
 
 def arithmetic(string):
-    if len(string.split()) < 2:
-        return "Please only input integers < 2000000000 without commas!"
-    elif not isint(string.split()[0]) or not isint(string.split()[1]):
+    if len(string.split()) or not isint(string.split()[0]) or not isint(string.split()[1]) < 2:
         return "Please only input integers < 2000000000 without commas!"
 
     numbers = [int(number) for number in string.split()]
@@ -139,9 +137,7 @@ def seconds_to_whole_years(string):
 def nand(string):
     bitstrings = string.split()
     
-    if len(string.split()) < 2:
-        return "Please enter two space-separated bitstrings of length < 128!"
-    elif len(bitstrings[0]) >= 128 or len(bitstrings[1]) >= 128:
+    if len(string.split()) < 2 or len(bitstrings[0]) >= 128 or len(bitstrings[1]) >= 128:
         return "Please enter two space-separated bitstrings of length < 128!"
 
     if bitstrings[0].isdecimal() and bitstrings[1].isdecimal() and len(bitstrings[0]) == len(bitstrings[1]):
